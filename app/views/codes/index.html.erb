@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <% @codes.each do |code| %>
+        <h1><%= link_to code.category.name, code_path(code)%></h1>
+        <hr>
+      <% end %>
+    </div>
+    <div class="col-md-4"><br>
+      <ul class="list-group">
+        <li class="list-group-item"><%= link_to "All Categories", root_path %></li>
+        <% Category.all.each do |category| %>
+          <li class="list-group-item"><%= link_to category.name, codes_path(category: category.name) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
